@@ -1,0 +1,2 @@
+# ezoe
+ezoe command
