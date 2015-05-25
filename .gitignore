@@ -1,1 +1,3 @@
 /dist/
+/cabal.config
+/cabal.sandbox.config

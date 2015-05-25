@@ -65,7 +65,7 @@ viewAns user = do
                           render answer) <$$>
                 mempty
 
-ezoe :: Flag "u" '["user"] "STRING" "user name" (Def "tanakh184" String)
+ezoe :: Flag "u" '["user"] "STRING" "user name" (Def "EzoeRyou" String)
      -> Arg "QUESTION" [String]
      -> Cmd "Ask.fm tools"
 ezoe user question = Cmd $ case get question of
