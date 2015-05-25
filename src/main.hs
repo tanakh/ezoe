@@ -19,12 +19,6 @@ import           Text.Regex.TDFA
 highlights :: String
 highlights = "質問ではない。?|不?自由"
 
-render :: String -> Doc
-render "" = mempty
-render ss =
-    let (before, cur, after) = ss =~ highlights
-    in string before <> green (string cur) <> render after
-
 post :: String -> String -> IO ()
 post user question = do
     doc <- simpleHttp $ "http://ask.fm/" <> user
@@ -64,6 +58,12 @@ viewAns user = do
                 indent 2 (red (string question) <$$>
                           render answer) <$$>
                 mempty
+
+render :: String -> Doc
+render "" = mempty
+render ss =
+    let (before, cur, after) = ss =~ highlights
+    in string before <> green (string cur) <> render after
 
 ezoe :: Flag "u" '["user"] "STRING" "user name" (Def "EzoeRyou" String)
      -> Arg "QUESTION" [String]
